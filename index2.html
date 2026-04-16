@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="pt-br" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quadratto Arquitetura | Projetamos o seu Futuro</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-bg: #0a0a0a;
+            --color-surface: #141414;
+            --color-accent: #e63946;
+            --color-white: #ffffff;
+            --color-muted: #888888;
+        }
+
+        body {
+            background-color: var(--color-bg);
+            color: var(--color-white);
+            font-family: 'Helvetica Neue', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
+        .font-serif {
+            font-family: 'Georgia', serif;
+        }
+
+        .border-subtle {
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 4px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #000;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--color-accent);
+        }
+
+        /* Animation Classes */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .fade-in {
+            opacity: 0;
+            transition: opacity 1.2s ease;
+        }
+
+        .fade-in.active {
+            opacity: 1;
+        }
+
+        /* Mobile Menu */
+        #mobile-menu {
+            transform: translateY(-100%);
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        #mobile-menu.active {
+            transform: translateY(0);
+        }
+
+        /* Hero Text Effect */
+        .hero-title {
+            line-height: 0.85;
+            letter-spacing: -0.04em;
+        }
+
+        /* Hover Grayscale Effect */
+        .img-premium {
+            filter: grayscale(100%);
+            transition: all 1s ease;
+        }
+
+        .img-premium:hover {
+            filter: grayscale(0%);
+            transform: scale(1.02);
+        }
+    </style>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="selection:bg-[#e63946] selection:text-white overflow-x-hidden">
+
+    <!-- HEADER -->
+    <header class="h-20 border-b border-subtle px-6 md:px-12 flex items-center justify-between sticky top-0 bg-[#0a0a0a]/95 backdrop-blur-sm z-[1001]">
+        <a href="#inicio" class="flex items-center gap-4 group">
+            <img src="https://i.pinimg.com/280x280_RS/cb/e7/43/cbe743a41a838b3dd4bdf3e79caa136c.jpg" alt="Quadratto Logo" class="w-10 h-10 object-contain transition-transform group-hover:rotate-12" referrerPolicy="no-referrer">
+            <div class="text-lg tracking-[3px] uppercase font-light">
+                Quadratto <span class="font-semibold">Arquitetura</span>
+            </div>
+        </a>
+        
+        <!-- Desktop Nav -->
+        <nav class="hidden lg:flex items-center gap-10">
+            <a href="#inicio" class="text-[11px] uppercase tracking-[3px] text-muted hover:text-[#e63946] font-bold transition-colors">Início</a>
+            <a href="#sobre" class="text-[11px] uppercase tracking-[3px] text-muted hover:text-[#e63946] font-bold transition-colors">Sobre</a>
+            <a href="#servicos" class="text-[11px] uppercase tracking-[3px] text-muted hover:text-[#e63946] font-bold transition-colors">Serviços</a>
+            <a href="#projetos" class="text-[11px] uppercase tracking-[3px] text-muted hover:text-[#e63946] font-bold transition-colors">Projetos</a>
+            <a href="#contato" class="text-[11px] uppercase tracking-[3px] text-muted hover:text-[#e63946] font-bold transition-colors">Contato</a>
+        </nav>
+
+        <div class="hidden xl:block text-[11px] text-muted uppercase tracking-[2px] border-l border-subtle pl-10 font-bold opacity-70">
+            Arq. Marcus Coden - CAU A85556-1
+        </div>
+
+        <!-- Mobile Menu Toggle -->
+        <button id="menu-toggle" class="lg:hidden text-white p-2 focus:outline-none">
+            <i data-lucide="menu" id="menu-icon" class="w-6 h-6"></i>
+        </button>
+    </header>
+
+    <!-- MOBILE MENU MODAL -->
+    <div id="mobile-menu" class="fixed inset-0 bg-[#0a0a0a] z-[1000] lg:hidden flex flex-col items-center justify-center gap-8">
+        <a href="#inicio" class="mobile-link text-4xl uppercase font-extralight tracking-tighter hover:text-[#e63946]">Início</a>
+        <a href="#sobre" class="mobile-link text-4xl uppercase font-extralight tracking-tighter hover:text-[#e63946]">Sobre</a>
+        <a href="#servicos" class="mobile-link text-4xl uppercase font-extralight tracking-tighter hover:text-[#e63946]">Serviços</a>
+        <a href="#projetos" class="mobile-link text-4xl uppercase font-extralight tracking-tighter hover:text-[#e63946]">Projetos</a>
+        <a href="#contato" class="mobile-link text-4xl uppercase font-extralight tracking-tighter hover:text-[#e63946]">Contato</a>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <main>
+        
+        <!-- HERO -->
+        <section id="inicio" class="relative h-[90vh] flex flex-col justify-center px-6 md:px-20 overflow-hidden group">
+            <div class="absolute inset-0 z-0">
+                <img src="https://lh3.googleusercontent.com/p/AF1QipNv2nx3-Nw5MF_ARxbwnnKHc1o5wLB1w6CBztmW" alt="Main Project" class="w-full h-full object-cover opacity-30 transition-transform duration-[2000ms] group-hover:scale-110" referrerPolicy="no-referrer">
+                <div class="absolute inset-0 bg-gradient-to-r from-black via-black/20 to-transparent"></div>
+            </div>
+            
+            <div class="relative z-10 max-w-5xl">
+                <div class="reveal active">
+                    <span class="inline-block px-4 py-1.5 border border-[#e63946] text-[#e63946] text-[10px] uppercase mb-8 tracking-[5px] font-bold">
+                        Arquitetura Premium & Interiores
+                    </span>
+                    <h1 class="text-7xl md:text-[11vw] font-extralight uppercase hero-title mb-10">
+                        Projetamos<br>seu futuro.
+                    </h1>
+                    <p class="text-xl text-zinc-400 max-w-2xl mb-12 font-light leading-relaxed">
+                        Há 11 anos assinando os melhores conceitos em arquitetura residencial e comercial com sofisticação absoluta.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-6">
+                        <a href="https://wa.me/5555981166734" target="_blank" class="bg-[#e63946] text-white px-12 py-6 uppercase font-bold tracking-[3px] text-xs hover:bg-[#c12e3a] transition-all transform hover:-translate-y-1 text-center flex items-center justify-center gap-3">
+                            <i data-lucide="message-circle" class="w-4 h-4"></i> Iniciar meu Projeto
+                        </a>
+                        <a href="#projetos" class="px-12 py-6 border border-white/20 uppercase font-bold tracking-[3px] text-xs hover:bg-white hover:text-black transition-all transform hover:-translate-y-1 text-center">
+                            Conhecer Portfólio
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- STATS SECTION -->
+        <section class="py-24 bg-[#141414] border-y border-subtle">
+            <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-16 md:gap-8">
+                <div class="reveal flex flex-col gap-4 text-center md:text-left">
+                    <div class="text-6xl font-extralight text-[#e63946] leading-none">11+</div>
+                    <h3 class="text-sm uppercase tracking-[4px] font-bold">Anos de Mercado</h3>
+                    <p class="text-xs text-muted leading-relaxed italic max-w-xs mx-auto md:mx-0">Uma década definindo novos horizontes arquitetônicos em Santa Maria e região.</p>
+                </div>
+                <div class="reveal flex flex-col gap-4 text-center md:text-left">
+                    <div class="flex justify-center md:justify-start text-[#ffd700] gap-1">
+                        <i data-lucide="star" class="w-6 h-6 fill-current"></i>
+                        <i data-lucide="star" class="w-6 h-6 fill-current"></i>
+                        <i data-lucide="star" class="w-6 h-6 fill-current"></i>
+                        <i data-lucide="star" class="w-6 h-6 fill-current"></i>
+                        <i data-lucide="star" class="w-6 h-6 fill-current"></i>
+                    </div>
+                    <h3 class="text-sm uppercase tracking-[4px] font-bold">Excelência 5 Estrelas</h3>
+                    <p class="text-xs text-muted leading-relaxed italic max-w-xs mx-auto md:mx-0">37 avaliações reais que comprovam nosso compromisso com a qualidade total.</p>
+                </div>
+                <div class="reveal flex flex-col gap-4 text-center md:text-left">
+                    <div class="text-6xl font-extralight text-[#e63946] leading-none">100%</div>
+                    <h3 class="text-sm uppercase tracking-[4px] font-bold">Autoral & Exclusivo</h3>
+                    <p class="text-xs text-muted leading-relaxed italic max-w-xs mx-auto md:mx-0">Cada desenho é único, materializando a biografia e os desejos de cada cliente.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SOBRE SECTION -->
+        <section id="sobre" class="py-32 px-6 md:px-20 border-b border-subtle overflow-hidden">
+            <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-[1fr_1.2fr] gap-24 items-center">
+                <div class="reveal relative">
+                    <div class="aspect-[4/5] overflow-hidden border border-subtle relative group">
+                        <img src="https://lh3.googleusercontent.com/p/AF1QipNHHvm1WeOcFXeCrJpxJpYgxNzRE3YYYu_mLocM" alt="Sobre Quadratto" class="w-full h-full object-cover img-premium" referrerPolicy="no-referrer">
+                    </div>
+                    <!-- Technical Badge -->
+                    <div class="absolute -bottom-8 -right-8 bg-[#e63946] p-10 hidden xl:block z-10">
+                        <div class="text-[10px] uppercase tracking-[5px] font-bold mb-2">Responsável Técnico</div>
+                        <div class="text-2xl font-light uppercase tracking-widest">Arq. Marcus Coden</div>
+                        <div class="text-[10px] opacity-70 mt-1">CAU A85556-1</div>
+                    </div>
+                </div>
+                <div class="reveal px-4">
+                    <span class="text-[#e63946] text-[12px] uppercase tracking-[6px] font-bold mb-8 block">Nossa História</span>
+                    <h2 class="text-5xl md:text-7xl font-extralight leading-tight mb-10 uppercase tracking-tighter">
+                        Tradição em <br>
+                        <span class="font-bold text-[#e63946]">Inovar Espaços.</span>
+                    </h2>
+                    <div class="space-y-8 text-zinc-400 font-light leading-relaxed text-lg lg:text-xl">
+                        <p>
+                            A Quadratto Arquitetura atua há 11 anos assinando os melhores conceitos em arquitetura. Desenvolvemos projetos residenciais, comerciais e interiores, sempre com foco em funcionalidade, sofisticação e exclusividade.
+                        </p>
+                        <p>
+                            Nossa abordagem é multidisciplinar. Entendemos que a arquitetura premium vai além do visual; ela trata de como o espaço se comporta perante a vida de quem o habita.
+                        </p>
+                    </div>
+                    
+                    <div class="mt-16 pt-12 border-t border-subtle flex items-center gap-10">
+                        <div class="flex flex-col gap-1">
+                            <span class="text-2xl font-light text-white">5.0</span>
+                            <span class="text-[10px] uppercase tracking-widest text-[#e63946] font-bold">Google Rating</span>
+                        </div>
+                        <div class="w-px h-12 bg-subtle"></div>
+                        <div class="text-[13px] text-zinc-300 font-light max-w-[200px]">
+                            Consolidada como uma das principais referências em arquitetura autoral.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SERVIÇOS SECTION -->
+        <section id="servicos" class="py-32 px-6 md:px-20 bg-zinc-950/40 border-b border-subtle">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-24 reveal">
+                    <span class="text-[#e63946] text-[11px] uppercase tracking-[6px] font-bold mb-4 block">Especialidades</span>
+                    <h2 class="text-5xl md:text-6xl font-extralight uppercase tracking-tighter">Nosso Know-How</h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-1">
+                    <!-- Service 1 -->
+                    <div class="reveal p-16 bg-[#0a0a0a] border border-subtle hover:bg-[#e63946] transition-all duration-700 group cursor-default">
+                        <i data-lucide="home" class="w-10 h-10 text-[#e63946] mb-10 group-hover:text-white transition-colors"></i>
+                        <h3 class="text-xl font-light uppercase tracking-[4px] mb-6 group-hover:font-bold transition-all">Residencial</h3>
+                        <p class="text-xs text-muted leading-relaxed font-light group-hover:text-white/80 transition-colors">Criação de lares luxuosos que unem conforto térmico, acústico e visual de alto padrão.</p>
+                    </div>
+                    <!-- Service 2 -->
+                    <div class="reveal p-16 bg-[#0a0a0a] border border-subtle hover:bg-[#e63946] transition-all duration-700 group cursor-default">
+                        <i data-lucide="briefcase" class="w-10 h-10 text-[#e63946] mb-10 group-hover:text-white transition-colors"></i>
+                        <h3 class="text-xl font-light uppercase tracking-[4px] mb-6 group-hover:font-bold transition-all">Comercial</h3>
+                        <p class="text-xs text-muted leading-relaxed font-light group-hover:text-white/80 transition-colors">Interiores corporativos estratégicos projetados para elevar o posicionamento de mercado da sua empresa.</p>
+                    </div>
+                    <!-- Service 3 -->
+                    <div class="reveal p-16 bg-[#0a0a0a] border border-subtle hover:bg-[#e63946] transition-all duration-700 group cursor-default">
+                        <i data-lucide="layers" class="w-10 h-10 text-[#e63946] mb-10 group-hover:text-white transition-colors"></i>
+                        <h3 class="text-xl font-light uppercase tracking-[4px] mb-6 group-hover:font-bold transition-all">Interiores</h3>
+                        <p class="text-xs text-muted leading-relaxed font-light group-hover:text-white/80 transition-colors">Combinação precisa de texturas, iluminação e mobiliário para criar experiências sensoriais únicas.</p>
+                    </div>
+                    <!-- Service 4 -->
+                    <div class="reveal p-16 bg-[#0a0a0a] border border-subtle hover:bg-[#e63946] transition-all duration-700 group cursor-default">
+                        <i data-lucide="users" class="w-10 h-10 text-[#e63946] mb-10 group-hover:text-white transition-colors"></i>
+                        <h3 class="text-xl font-light uppercase tracking-[4px] mb-6 group-hover:font-bold transition-all">Consultoria</h3>
+                        <p class="text-xs text-muted leading-relaxed font-light group-hover:text-white/80 transition-colors">Análise técnica profissional para tomadas de decisão rápidas e assertivas em seu imóvel.</p>
+                    </div>
+                    <!-- Service 5 -->
+                    <div class="reveal p-16 bg-[#0a0a0a] border border-subtle hover:bg-[#e63946] transition-all duration-700 group cursor-default">
+                        <i data-lucide="hammer" class="w-10 h-10 text-[#e63946] mb-10 group-hover:text-white transition-colors"></i>
+                        <h3 class="text-xl font-light uppercase tracking-[4px] mb-6 group-hover:font-bold transition-all">Reformas</h3>
+                        <p class="text-xs text-muted leading-relaxed font-light group-hover:text-white/80 transition-colors">Planejamento e coordenação de grandes transformações com rigor técnico e estético.</p>
+                    </div>
+                    <!-- Differentials Card -->
+                    <div class="reveal p-16 bg-[#e63946] text-white flex flex-col justify-center">
+                        <h3 class="text-xl font-bold uppercase tracking-[4px] mb-10">Diferenciais</h3>
+                        <div class="space-y-6">
+                            <div class="flex items-center gap-6">
+                                <i data-lucide="car-front" class="w-5 h-5 shrink-0"></i>
+                                <span class="text-[10px] uppercase tracking-[4px] font-bold">Estacionamento Gratuito</span>
+                            </div>
+                            <div class="flex items-center gap-6">
+                                <i data-lucide="check-circle" class="w-5 h-5 shrink-0"></i>
+                                <span class="text-[10px] uppercase tracking-[4px] font-bold">Atendimento Custom</span>
+                            </div>
+                            <div class="flex items-center gap-6">
+                                <i data-lucide="award" class="w-5 h-5 shrink-0"></i>
+                                <span class="text-[10px] uppercase tracking-[4px] font-bold">Localização Nobre</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROJETOS SECTION -->
+        <section id="projetos" class="py-32 px-6 md:px-20 overflow-hidden">
+            <div class="max-w-7xl mx-auto">
+                <div class="flex flex-col lg:row justify-between lg:items-end mb-24 gap-12">
+                    <div class="reveal">
+                        <span class="text-[#e63946] text-[11px] uppercase tracking-[6px] font-bold mb-6 block">Portfólio</span>
+                        <h2 class="text-5xl md:text-7xl font-extralight uppercase tracking-tighter">Projetos em Destaque</h2>
+                    </div>
+                    <p class="reveal text-sm text-muted max-w-sm font-light leading-relaxed mb-4">
+                        Uma amostra do rigor arquitetônico que aplicamos em cada detalhe, buscando sempre a perfeição plástica e funcional.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+                    <div class="reveal relative aspect-[16/10] overflow-hidden bg-[#141414] group">
+                        <img src="https://lh3.googleusercontent.com/p/AF1QipOIGKcPK1PlqvR1zKfJqpb87q4lL9ZA_K5nIFbW" alt="Projeto 1" class="w-full h-full object-cover img-premium" referrerPolicy="no-referrer">
+                        <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-700 flex flex-col items-center justify-center p-10">
+                            <h4 class="text-2xl font-light uppercase tracking-[4px] mb-4">Conceito Modernista</h4>
+                            <div class="w-12 h-px bg-[#e63946]"></div>
+                        </div>
+                    </div>
+                    <div class="reveal relative aspect-[16/10] overflow-hidden bg-[#141414] group">
+                        <img src="https://lh3.googleusercontent.com/geougc-cs/AMG9lES3u_UsPViHJG_A6RUj5-up2D_p-lcOfcWMhFork0ZLEP90eb8QEf-Njuopr8ZzK1fllk_wMhRjXqcnQLr9x1Nq3hHm5DrTo2R4v-ScBgPsW1aAYYvGmZH-jiq7ogUBBgGKUTCw" alt="Projeto 2" class="w-full h-full object-cover img-premium" referrerPolicy="no-referrer">
+                        <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-700 flex flex-col items-center justify-center p-10">
+                            <h4 class="text-2xl font-light uppercase tracking-[4px] mb-4">Integração Residencial</h4>
+                            <div class="w-12 h-px bg-[#e63946]"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TESTIMONIAL -->
+        <section class="py-32 bg-[#141414] border-y border-subtle overflow-hidden">
+            <div class="max-w-4xl mx-auto px-6 text-center reveal">
+                <i data-lucide="quote" class="w-16 h-16 text-[#e63946] opacity-30 mx-auto mb-12"></i>
+                <p class="font-serif italic text-3xl md:text-4xl text-zinc-200 leading-snug mb-12">
+                    "Empresa séria e comprometida com o melhor andamento possível do projeto, além da exclusividade na elaboração."
+                </p>
+                <div class="flex flex-col items-center gap-4">
+                    <span class="text-xs uppercase tracking-[6px] font-bold text-[#e63946]">Rodrigo Posser</span>
+                    <div class="flex text-[#ffd700] gap-0.5">
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTATO SECTION -->
+        <section id="contato" class="py-32 px-6 md:px-20 bg-zinc-950/40">
+            <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-24">
+                <div class="reveal">
+                    <span class="text-[#e63946] text-[11px] uppercase tracking-[6px] font-bold mb-6 block">Vamos Conversar?</span>
+                    <h2 class="text-5xl md:text-7xl font-extralight uppercase tracking-tighter mb-16 underline decoration-[#e63946] decoration-1 underline-offset-8">Contato</h2>
+                    
+                    <div class="space-y-16">
+                        <div class="flex gap-10 items-start group">
+                            <div class="w-12 h-12 bg-[#141414] border border-subtle flex items-center justify-center text-[#e63946] shrink-0 group-hover:bg-[#e63946] group-hover:text-white transition-all">
+                                <i data-lucide="map-pin" class="w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-[11px] uppercase tracking-[4px] text-muted font-bold mb-3">Sede Escritório</h4>
+                                <p class="text-xl font-light leading-relaxed">
+                                    Av. Borges de Medeiros, 1759 - sala 06 <br>
+                                    Noal, Santa Maria - RS, 97015-090
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-10 items-start group">
+                            <div class="w-12 h-12 bg-[#141414] border border-subtle flex items-center justify-center text-[#e63946] shrink-0 group-hover:bg-[#e63946] group-hover:text-white transition-all">
+                                <i data-lucide="clock" class="w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-[11px] uppercase tracking-[4px] text-muted font-bold mb-3">Janela de Atendimento</h4>
+                                <p class="text-xl font-light leading-relaxed">
+                                    Segunda a Sexta <br>
+                                    09:00 - 12:00 | 14:00 - 18:00
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-10 items-start group">
+                            <div class="w-12 h-12 bg-[#141414] border border-subtle flex items-center justify-center text-[#e63946] shrink-0 group-hover:bg-[#e63946] group-hover:text-white transition-all">
+                                <i data-lucide="message-circle" class="w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-[11px] uppercase tracking-[4px] text-muted font-bold mb-3">Direct WhatsApp</h4>
+                                <p class="text-2xl font-light text-[#e63946] tracking-widest">(55) 98116-6734</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-20 flex gap-8">
+                        <a href="https://www.instagram.com/quadratto_arquitetura/" target="_blank" class="w-16 h-16 border border-subtle flex items-center justify-center hover:bg-[#e63946] hover:border-[#e63946] transition-all transform hover:-translate-y-2">
+                            <i data-lucide="instagram" class="w-6 h-6"></i>
+                        </a>
+                        <a href="https://www.facebook.com/quadratto.arquitetura/" target="_blank" class="w-16 h-16 border border-subtle flex items-center justify-center hover:bg-[#e63946] hover:border-[#e63946] transition-all transform hover:-translate-y-2">
+                            <i data-lucide="facebook" class="w-6 h-6"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="reveal h-[600px] border border-subtle grayscale hover:grayscale-0 transition-all duration-[1500ms] overflow-hidden relative">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3469.052445695034!2d-53.8241031!3d-29.6892305!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9503cb6900000001%3A0x6a0f0a0a0a0a0a0a!2sAv.%20Borges%20de%20Medeiros%2C%201759%20-%20Noal%2C%20Santa%20Maria%20-%20RS%2C%2097015-090!5e0!3m2!1spt-BR!2sbr!4v1713270000000!5m2!1spt-BR!2sbr" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="opacity-80"></iframe>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-[#0a0a0a] py-20 px-6 md:px-20 border-t border-subtle overflow-hidden">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-16">
+            <div class="flex items-center gap-6">
+                <img src="https://i.pinimg.com/280x280_RS/cb/e7/43/cbe743a41a838b3dd4bdf3e79caa136c.jpg" alt="Logo" class="w-12 h-12 object-contain" referrerPolicy="no-referrer">
+                <div>
+                    <span class="block text-sm uppercase tracking-[5px] font-bold">Quadratto</span>
+                    <span class="block text-[10px] uppercase tracking-[3px] text-muted mt-1">Arquitetura de Alto Padrão</span>
+                </div>
+            </div>
+            
+            <nav class="flex flex-wrap justify-center gap-10">
+                <a href="#inicio" class="text-[10px] uppercase tracking-[3px] text-muted hover:text-white font-bold transition-all underline decoration-transparent hover:decoration-[#e63946]">Início</a>
+                <a href="#sobre" class="text-[10px] uppercase tracking-[3px] text-muted hover:text-white font-bold transition-all underline decoration-transparent hover:decoration-[#e63946]">Sobre</a>
+                <a href="#servicos" class="text-[10px] uppercase tracking-[3px] text-muted hover:text-white font-bold transition-all underline decoration-transparent hover:decoration-[#e63946]">Serviços</a>
+                <a href="#projetos" class="text-[10px] uppercase tracking-[3px] text-muted hover:text-white font-bold transition-all underline decoration-transparent hover:decoration-[#e63946]">Projetos</a>
+                <a href="#contato" class="text-[10px] uppercase tracking-[3px] text-muted hover:text-white font-bold transition-all underline decoration-transparent hover:decoration-[#e63946]">Contato</a>
+            </nav>
+
+            <div class="text-[10px] text-muted uppercase tracking-[3px] text-center md:text-right font-bold leading-relaxed">
+                © 2026 Quadratto Arquitetura<br>
+                Todos os direitos reservados
+            </div>
+        </div>
+    </footer>
+
+    <!-- FLOAT WHATSAPP BUTTON -->
+    <a href="https://wa.me/5555981166734" target="_blank" class="fixed bottom-10 right-10 bg-[#25D366] text-white p-5 rounded-full shadow-2xl hover:scale-110 active:scale-95 transition-all z-[999] animate-bounce-slow">
+        <i data-lucide="message-circle" class="w-8 h-8"></i>
+    </a>
+
+    <!-- SCRIPTS -->
+    <script>
+        // Initialize Lucide Icons
+        window.onload = () => {
+            lucide.createIcons();
+        }
+
+        // Mobile Menu Logic
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        menuToggle.addEventListener('click', () => {
+            const isOpen = mobileMenu.classList.toggle('active');
+            document.body.style.overflow = isOpen ? 'hidden' : '';
+            // Update Icon
+            if(isOpen) {
+                menuIcon.remove();
+                const closeIcon = document.createElement('i');
+                closeIcon.setAttribute('data-lucide', 'x');
+                closeIcon.id = 'menu-icon';
+                menuToggle.appendChild(closeIcon);
+            } else {
+                menuIcon.remove();
+                const openIcon = document.createElement('i');
+                openIcon.setAttribute('data-lucide', 'menu');
+                openIcon.id = 'menu-icon';
+                menuToggle.appendChild(openIcon);
+            }
+            lucide.createIcons();
+        });
+
+        // Close menu on link click
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+                document.body.style.overflow = '';
+                // Reset Icon
+                const menuIconCurrent = menuToggle.querySelector('i');
+                menuIconCurrent.remove();
+                const openIcon = document.createElement('i');
+                openIcon.setAttribute('data-lucide', 'menu');
+                openIcon.id = 'menu-icon';
+                menuToggle.appendChild(openIcon);
+                lucide.createIcons();
+            });
+        });
+
+        // Intersection Observer for Scroll Animations
+        const observerOptions = {
+            threshold: 0.15,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    // Once animated, no need to observe anymore
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => {
+            revealObserver.observe(el);
+        });
+
+        // Custom bounce animation
+        const style = document.createElement('style');
+        style.innerHTML = `
+            @keyframes bounce-slow {
+                0%, 100% { transform: translateY(0); }
+                50% { transform: translateY(-10px); }
+            }
+            .animate-bounce-slow {
+                animation: bounce-slow 3s infinite;
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
